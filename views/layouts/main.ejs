@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This Website was built by Circo Digital Technologies August 2024 -->
+    <!-- Inclusive Friends Association 1.0.0 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="description" content="<%= locals.description %>">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords"
+        content="IFA, Disability, Inclusive, Inclusion, NGO, CSO Abuja, CSO Nigeria, Inclusive Friends Association">
+    <meta name="author" content="IFA">
+    <meta name="robots" content="index, follow">
+    <title>IFA | Inclusive Friends Association - <%= locals.title %> </title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script defer src="/js/script.js"></script>
+</head>
+<body>
+
+    <div class="">
+        <%- include('../partials/header.ejs') %>
+        <div class="wrapper">
+
+            <%- body %>
+        </div>
+        <%- include('../partials/footer.ejs') %>
+        
+    </div>
+</body>
+</html>

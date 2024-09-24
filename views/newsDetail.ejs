@@ -1,0 +1,44 @@
+<!-- Who we are Page Section  -->
+<div class="news-page">
+    <h1><%= data.title %> </h1>
+    <article><%= data.body %></article>
+   
+</div>
+
+<!-- Google Translate Widget Code -->
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,yo,ig,ha'
+        }, 'google_translate_element');
+    }
+
+
+    function toggleTheme() {
+        document.documentElement.classList.toggle('dark-theme');
+    }
+
+    // Image slider 
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        document.querySelector('.slider').style.transform = `translateX(${-currentSlide * 100}%)`;
+    }
+
+    function moveSlide(n) {
+        showSlide(currentSlide + n);
+    }
+
+    // Auto-slide (Optional)
+    setInterval(() => moveSlide(1), 3000);
+</script>
+
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script src="/script.js"></script>

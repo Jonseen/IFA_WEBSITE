@@ -1,0 +1,83 @@
+<div class="publications-div container">
+    <h1>Publications</h1>
+
+    <div class="publications">
+        <div class="publication">
+            <img src="/img/pub1.png" alt="Disability Act">
+            <h4>Beyond Legislation: A Comprehensive Study on Nigeria’s compliance with the Disability Act</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub2.png" alt="Gender Based Violence">
+            <h4>Training Manual on:
+                Disability & Gender Based Violence</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub3.jpg" alt="Gender Based Violence">
+            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub4.jpg" alt="Gender Based Violence">
+            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub5.jpg" alt="Gender Based Violence">
+            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub6.jpg" alt="Gender Based Violence">
+            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub7.jpg" alt="Gender Based Violence">
+            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+        <div class="publication">
+            <img src="/img/pub8.jpg" alt="Gender Based Violence">
+            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
+            <a href="" target="_blank">Download</a>
+        </div>
+    </div>
+</div>
+
+<!-- Google Translate Widget Code -->
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,yo,ig,ha'
+        }, 'google_translate_element');
+    }
+
+
+    function toggleTheme() {
+        document.documentElement.classList.toggle('dark-theme');
+    }
+
+    // Image slider 
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        document.querySelector('.slider').style.transform = `translateX(${-currentSlide * 100}%)`;
+    }
+
+    function moveSlide(n) {
+        showSlide(currentSlide + n);
+    }
+
+    // Auto-slide (Optional)
+    setInterval(() => moveSlide(1), 3000);
+</script>
+
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
