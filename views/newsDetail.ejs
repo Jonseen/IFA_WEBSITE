@@ -1,8 +1,16 @@
 <!-- Who we are Page Section  -->
 <div class="news-page">
     <h1><%= data.title %> </h1>
-    <article><%= data.body %></article>
-   
+    <div>
+        <% if (data && data.images && data.images.length > 0) { %>
+            <% data.images.forEach(function(image) { %>
+              <img src="/uploads/<%= image %>" alt="Image" style="width:50px; height:50px; margin: 10px;">
+            <% }) %>
+          <% } else { %>
+            <p>No images available.</p>
+          <% } %>      
+    </div>
+    <article><%- data.body %></article>
 </div>
 
 <!-- Google Translate Widget Code -->

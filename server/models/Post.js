@@ -17,9 +17,9 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    image: {
-        type: Buffer, // Store image data as a Buffer
-        contentType: String // Optional: Store image content type (e.g., "image/jpeg")
+    images: {
+        type: [],
+        required: true
     }
 })
 

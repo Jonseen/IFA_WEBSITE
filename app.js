@@ -15,10 +15,11 @@ const connectDB = require('./server/config/db');
 
 const app = express();
 const PORT = 5000 || process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 // Connect to Database 
-connectDB();
+connectDB(MONGODB_URI);
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(cookieParser());
@@ -28,10 +29,6 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI,
-       
-    }),
     cookie: { maxAge: new Date(Date.now() + (3600000)) } 
 }))
 
@@ -46,7 +43,7 @@ app.set('view engine', 'ejs');
 
 
 app.use('/', require('./server/routes/main'));
-app.use('/', require('./server/routes/admin'));
+app.use('/admin', require('./server/routes/admin'));
 
 
 app.listen(PORT, ()=> {

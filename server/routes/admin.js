@@ -3,7 +3,10 @@ const router = express.Router();
 const Post = require('../models/Post'); 
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken'); 
+const jwt = require('jsonwebtoken');
+const upload = require('../middlewares/upload')
+const fs = require('fs');
+const path = require('path');
 
 const adminLayout = "../views/layouts/admin";
 const jwtSecret = process.env.JWT_SECRET;
@@ -37,7 +40,7 @@ const authMiddleware = (req, res, next) => {
 // GET
 // ADMIN
 
-router.get('/admin', async (req, res) => { 
+router.get('', async (req, res) => { 
     try {
         
         const locals = {
@@ -59,7 +62,7 @@ ADMIN DASHBOARD
 
 */
 
-router.get('/admin/dashboard', authMiddleware , async (req, res) => { 
+router.get('/dashboard', authMiddleware , async (req, res) => { 
     try {
         
         const locals = {
@@ -85,7 +88,7 @@ GET
 ADMIN CREATE NEW POST
 
 */
-router.get('/admin/add-post', authMiddleware , async (req, res) => { 
+router.get('/add-post', authMiddleware , async (req, res) => { 
     try {
         
         const locals = {
@@ -110,16 +113,21 @@ post
 ADD NEW POST
 */
 
-router.post('/admin/add-post', authMiddleware, async (req, res)=> {
+router.post('/add-post', authMiddleware, upload, async (req, res)=> {
     try {
-
-        console.log(req.body);
         try {
-            const newPost = new Post({
+            if (req.files == undefined) {
+                return res.send('no file uploaded');
+            }
+
+            const fileNames = req.files.map(file => file.filename)
+
+            const postData = {
                 title: req.body.title,
-                body: req.body.body
-            }); 
-            await Post.create(newPost);
+                body: req.body.body,
+                images: fileNames
+            }
+            await new Post(postData).save()
             res.redirect('/admin/dashboard')
         } catch (error) {
             
@@ -135,7 +143,7 @@ GET
 ADMIN EDIT POST
 
 */
-router.get('/admin/edit-post/:id', authMiddleware, async (req, res) => { 
+router.get('/edit-post/:id', authMiddleware, async (req, res) => { 
     try {
         
         const locals = {
@@ -160,19 +168,42 @@ router.get('/admin/edit-post/:id', authMiddleware, async (req, res) => {
 ADMIN EDIT POST
 
 */
-router.put('/admin/edit-post/:id', authMiddleware, async (req, res) => { 
-    try {
-        
+router.put('/edit-post/:id', authMiddleware, upload, async (req, res) => { 
+    try {        
         const locals = {
             title: 'Admin - Edit Post',
             description: 'The Inclusive Friends Association Website',
             keywords: ['website', 'about', 'brand']
         }
-        await Post.findByIdAndUpdate(req.params.id, {
-            title: req.body.title,
-            body: req.body.body,
-            updatedAt: Date.now()
-        })
+
+        const post = await Post.findOne({ _id: req.params.id });
+
+        if (req.files == undefined || req.files.length == 0) {
+            await Post.findByIdAndUpdate(req.params.id, {
+                title: req.body.title,
+                body: req.body.body,
+                updatedAt: Date.now()
+            })
+        }else{
+            const fileNames = req.files.map(file => file.filename)
+            
+            if (post.images && post.images.length > 0) {
+                post.images.forEach(image => {
+                    const filePath = path.join(__dirname, '../../public/uploads', image)
+                    if (fs.existsSync(filePath)) {
+                        fs.unlinkSync(filePath);
+                    }
+                });
+            }
+
+            await Post.findByIdAndUpdate(req.params.id, {
+                title: req.body.title,
+                body: req.body.body,
+                updatedAt: Date.now(),
+                images: fileNames
+            })
+
+        }
         res.redirect(`/admin/edit-post/${req.params.id}`);
     } catch (error) {
         console.log(error);
@@ -181,10 +212,8 @@ router.put('/admin/edit-post/:id', authMiddleware, async (req, res) => {
 
 
 
-
-
 // CREATE ADMIN 
-router.get('/admin/create', async (req, res) => { 
+router.get('/create', async (req, res) => { 
     try {
         
         const locals = {
@@ -206,7 +235,7 @@ router.get('/admin/create', async (req, res) => {
 // POST
 // ADMIN - Check Login
 
-router.post('/admin', async (req, res) => {
+router.post('', async (req, res) => {
     try {
         const {username, password} = req.body;
         
@@ -262,7 +291,7 @@ router.post('/admin', async (req, res) => {
 // })
 
 
-router.post('/admin/create', async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
         const {username, password} = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);

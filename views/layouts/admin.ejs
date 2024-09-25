@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/30jnpchfranw2i8ond5ykkdgze0ta0yi26jwmvt4l2y559dg/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script defer src="/js/script.js"></script>
 </head>
 
@@ -54,6 +55,14 @@
     </script>
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        tinymce.init({
+          selector: '#richtext',
+          plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+          toolbar_mode: 'floating',
+          toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+        });
+      </script>
 </body>
 
 </html>
