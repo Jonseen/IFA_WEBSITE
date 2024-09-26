@@ -1,3 +1,4 @@
+
 <!-- Who we are Page Section  -->
 <div class="news-page">
     <h1>News and Updates </h1>
@@ -22,11 +23,9 @@
                             <p class="date"><%= post.createdAt.toDateString() %></p>
                         </div>
     
-                        <p class="snippet">Did you Know?
-    
-                            Benue State stands out as the sole state in the North Central geopolitical zone yet to
-                            domesticate the disability act,
-                            lagging behind its counterparts.</p>
+                        <p class="snippet">
+                            <%- truncateWords((post.body.replace(/<[^>]*>/g, '')), 50) %>...
+                        </p>
                         <a href="/newsDetail/post/<%= post._id %>">Read More</a>
                     </div>
                 </div>
@@ -47,6 +46,16 @@
             <% } %>
     </div>
 </div>
+<script>
+  const truncateWords = (text, maxLength) => {
+        const words = text.split(' ');
+        if (words.length > maxLength) {
+            return words.slice(0, maxLength).join(' ') + '...';
+        }
+        return text;
+    }
+</script>
+
 
 <!-- Google Translate Widget Code -->
 

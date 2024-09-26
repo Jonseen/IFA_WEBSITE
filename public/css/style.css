@@ -347,9 +347,9 @@ svg {
     font-weight: 600;
 }
 
-
-
-
+.header .header-menu {
+    display: none;
+}
 .menubarnav {
     display: none;
 }
