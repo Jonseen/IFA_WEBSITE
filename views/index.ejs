@@ -235,7 +235,7 @@
                 </p>
 
                 <p class="solution-card-text-2">
-                    <%- truncateWords((post.body.replace(/<[^>]*>/g, '')), 50) %>...
+                    <%- post.body.replace(/<[^>]*>/g, '').split(' ').slice(0, 50).join(' ') + '...' %>
                 </p>
                 <a href="/newsDetail/post/<%= post._id %>" class="learn-button">Read more</a>
             </div>

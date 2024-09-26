@@ -24,7 +24,7 @@
                         </div>
     
                         <p class="snippet">
-                            <%- truncateWords((post.body.replace(/<[^>]*>/g, '')), 50) %>...
+                            <%- post.body.replace(/<[^>]*>/g, '').split(' ').slice(0, 50).join(' ') + '...' %>
                         </p>
                         <a href="/newsDetail/post/<%= post._id %>">Read More</a>
                     </div>
