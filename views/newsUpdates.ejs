@@ -1,9 +1,8 @@
-
 <!-- Who we are Page Section  -->
 <div class="news-page">
     <h1>News and Updates </h1>
-    <div class="search-div">
-        <form action="/newsUpdates" method="post">
+    <div>
+        <form action="/newsUpdates" method="post" class="search-div">
             <input type="text" id="search" placeholder="Search News" name="searchTerm" />
             <button type="submit" id="news_search">Search</button>
         </form>
@@ -11,50 +10,54 @@
 
     <div class="news-list">
 
-        <% data.forEach(post => { %>
+        <% data.forEach(post=> { %>
             <div class="news">
                 <div class="news-top">
-                    <img src="/img/ADL_5126-780x437.jpg" alt="">
+                    <div class="news-img">
+                        <% if (post && post.images && post.images.length> 0) { %>
+                            <% post.images.forEach(function(image) { %>
+                                <img src="/uploads/<%= image %>" alt="Image">
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>No images available.</p>
+                                        <% } %>
+                    </div>
                     <div class="news-info">
-                        <h4 class="headline"><%= post.title %> </h4>
+                        <h4 class="headline">
+                            <%= post.title %>
+                        </h4>
                         <div class="news-time">
                             <p class="author">IFA</p>
                             <span>|</span>
-                            <p class="date"><%= post.createdAt.toDateString() %></p>
+                            <p class="date">
+                                <%= post.createdAt.toDateString() %>
+                            </p>
                         </div>
-    
+
                         <p class="snippet">
-                            <%- post.body.replace(/<[^>]*>/g, '').split(' ').slice(0, 50).join(' ') + '...' %>
+                            <%- post.body.replace(/<[^>]*>/g, '').split(' ').slice(0, 30).join(' ') + '...' %>
                         </p>
                         <a href="/newsDetail/post/<%= post._id %>">Read More</a>
                     </div>
                 </div>
             </div>
-         
-        <% }) %>
-       
-        <% if ( nextPage !== null ) { %>
-            <a href="/newsUpdates?page=<%= nextPage %>" class="older-news">
-                <span>View Other Posts</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
-                    </path>
-                    <path d="M9.293 7.707 13.586 12l-4.293 4.293 1.414 1.414L16.414 12l-5.707-5.707z"></path>
-                </svg>
-            </a>
-            <% } %>
+
+            <% }) %>
+
+                <% if ( nextPage !==null ) { %>
+                    <a href="/newsUpdates?page=<%= nextPage %>" class="older-news">
+                        <span>View Other Posts</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M9.293 7.707 13.586 12l-4.293 4.293 1.414 1.414L16.414 12l-5.707-5.707z"></path>
+                        </svg>
+                    </a>
+                    <% } %>
     </div>
 </div>
-<script>
-  const truncateWords = (text, maxLength) => {
-        const words = text.split(' ');
-        if (words.length > maxLength) {
-            return words.slice(0, maxLength).join(' ') + '...';
-        }
-        return text;
-    }
-</script>
+
 
 
 <!-- Google Translate Widget Code -->

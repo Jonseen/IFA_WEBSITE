@@ -959,14 +959,21 @@ svg {
     /* height: 300px; */
 }
 
-.solution .solution-cards .solution-card img {
+.solution .solution-cards .solution-card .card-img {
     width: 100%;
-    height: 200px;
+    height: 100px;
     object-fit: cover;
 }
 
+.solution .solution-cards .solution-card .card-img img {
+    width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+}
+
 .solution .solution-cards .solution-card .solution-card-text {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--color-dark);
     line-height: 28px;
@@ -1545,7 +1552,7 @@ footer::before {
 
 .news-page .news-list .news .news-top img {
     width: 200px;
-    height: auto;
+    height: 150px;
     display: block;
     border-radius: 5px;
     object-fit: cover;

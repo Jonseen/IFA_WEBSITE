@@ -31,14 +31,19 @@
         text-align: center;
     }
 
+    .hero .hero-left h1 {
+        font-size: 42px;
+        line-height: 100%;
+    }
+
     .cta-button {
         justify-content: center;
         flex-direction: column;
     }
 
     .cta-button a {
-        font-size: 24px;
-        padding: 20px 60px;
+        font-size: 18px;
+        padding: 15px 40px;
     }
 
     .hero .hero-right {
@@ -46,8 +51,8 @@
     }
 
     .hero .hero-left .child-2 {
-        font-size: 18px;
-        line-height: 32px;
+        font-size: 16px;
+        line-height: 24px;
         color: var(--color-dark);
     }
 
@@ -197,7 +202,153 @@
         font-size: 40px;
     }
 
-        .products,
+    .products,
+    .solutions,
+    .resources {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .header-links .products .about-us-drop {
+        display: none;
+        position: absolute;
+        background-color: var(--color-white);
+        padding: 10px;
+        top: 53px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px #e3e2e27b;
+    }
+
+    .header-links .products:hover>.about-us-drop {
+        display: block;
+    }
+
+    .header-links .products .about-us-drop li a {
+        display: block;
+        color: var(--color-dark);
+        padding: 10px 10px;
+        font-weight: 500;
+    }
+
+    .header-links .products .about-us-drop li a:hover {
+        color: var(--color-accent);
+        background-color: #B6C7D6;
+    }
+
+    .header-links a {
+        color: var(--color-dark);
+        font-weight: 600;
+    }
+
+    .header-links .solutions .programs-drop {
+        display: none;
+        position: absolute;
+        background-color: var(--color-white);
+        padding: 10px;
+        top: 53px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px #e3e2e27b;
+    }
+
+    .header-links .solutions:hover>.programs-drop {
+        display: block;
+    }
+
+    .header-links .solutions .programs-drop li a {
+        display: block;
+        color: var(--color-dark);
+        padding: 10px 10px;
+        font-weight: 500;
+    }
+
+    .header-links .solutions .programs-drop li a:hover {
+        color: var(--color-accent);
+        background-color: #B6C7D6;
+    }
+
+    .header-links a {
+        color: var(--color-dark);
+        font-weight: 600;
+    }
+
+    .news-page .search-div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        /* flex-direction: column; */
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .news-page .search-div input[type="text"] {
+        width: 70%;
+
+    }
+
+    .news-page .search-div button {
+        width: 30%;
+    }
+
+    .news-page {
+        background-color: var(--color-white);
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .news-page .news-list {
+        padding: 0px 10px;
+    }
+
+    .news-page .news-list .news {
+        border-bottom: 1px solid var(--color-grey-hr);
+        width: 100%;
+        padding-block: 20px;
+    }
+
+    .news-page .news-list .news .news-top {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        gap: 10px;
+        align-items: top;
+    }
+
+    .news-page .news-list .news .news-top .news-img {
+        width: 100%;
+    }
+
+    .news-page .news-list .news .news-top .news-info {
+        width: 100%;
+    }
+
+    .news-page .news-list .news .news-top img {
+        width: 100%;
+        height: 120px;
+        display: block;
+        border-radius: 5px;
+        object-fit: cover;
+        object-position: top center;
+    }
+
+    .news-page .news-list .news .news-top .headline {
+        font-size: 22px;
+        color: var(--color-dark);
+        margin-bottom: 5px;
+    }
+
+        .menubarnav .header-links {
+            display: flex;
+            justify-content: left;
+            flex-direction: column;
+            gap: 32px;
+            align-items: left;
+            margin: 0 auto;
+        }
+    
+                .menubarnav .header-links .products,
         .solutions,
         .resources {
             display: flex;
@@ -205,67 +356,55 @@
             align-items: center;
         }
     
-       .header-links .products .about-us-drop {
-            display: none;
-            position: absolute;
-            background-color: var(--color-white);
-            padding: 10px;
-            top: 53px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 5px #e3e2e27b;
-        }
+         
     
-       .header-links .products:hover>.about-us-drop {
-            display: block;
-        }
-    
-        .header-links .products .about-us-drop li a {
-            display: block;
-            color: var(--color-dark);
-            padding: 10px 10px;
-            font-weight: 500;
-        }
-    
-       .header-links .products .about-us-drop li a:hover {
-            color: var(--color-accent);
-            background-color: #B6C7D6;
-        }
-    
-        .header-links a {
-            color: var(--color-dark);
-            font-weight: 600;
-        }
-    
-       .header-links .solutions .programs-drop {
-            display: none;
-            position: absolute;
-            background-color: var(--color-white);
-            padding: 10px;
-            top: 53px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 5px #e3e2e27b;
-        }
-    
-        .header-links .solutions:hover>.programs-drop {
-            display: block;
-        }
-    
-       .header-links .solutions .programs-drop li a {
-            display: block;
-            color: var(--color-dark);
-            padding: 10px 10px;
-            font-weight: 500;
-        }
-    
-       .header-links .solutions .programs-drop li a:hover {
-            color: var(--color-accent);
-            background-color: #B6C7D6;
-        }
-    
-      .header-links a {
-            color: var(--color-dark);
-            font-weight: 600;
-        }
-
         
+    
+           .menubarnav .header-links .products .about-us-drop li a {
+            display: block;
+            color: var(--color-dark);
+            padding: 10px 10px;
+            font-weight: 500;
+        }
+    
+           .menubarnav .header-links .products .about-us-drop li a:hover {
+            color: var(--color-accent);
+            background-color: #B6C7D6;
+        }
+    
+                .menubarnav .header-links a {
+            color: var(--color-dark);
+            font-weight: 600;
+        }
+    
+        .header .header-left .header-links .solutions .programs-drop {
+            display: none;
+            position: absolute;
+            background-color: var(--color-white);
+            padding: 10px;
+            top: 53px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px #e3e2e27b;
+        }
+    
+        .header .header-left .header-links .solutions:hover>.programs-drop {
+            display: block;
+        }
+    
+        .header .header-left .header-links .solutions .programs-drop li a {
+            display: block;
+            color: var(--color-dark);
+            padding: 10px 10px;
+            font-weight: 500;
+        }
+    
+        .header .header-left .header-links .solutions .programs-drop li a:hover {
+            color: var(--color-accent);
+            background-color: #B6C7D6;
+        }
+    
+        .header .header-left .header-links a {
+            color: var(--color-dark);
+            font-weight: 600;
+        }
 }

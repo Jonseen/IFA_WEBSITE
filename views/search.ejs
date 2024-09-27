@@ -13,7 +13,15 @@
         <% data.forEach(post=> { %>
             <div class="news">
                 <div class="news-top">
-                    <img src="/img/ADL_5126-780x437.jpg" alt="">
+                    <div>
+                        <% if (post && post.images && post.images.length> 0) { %>
+                            <% post.images.forEach(function(image) { %>
+                                <img src="/uploads/<%= image %>" alt="Image">
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>No images available.</p>
+                                        <% } %>
+                    </div>
                     <div class="news-info">
                         <h4 class="headline">
                             <%= post.title %>

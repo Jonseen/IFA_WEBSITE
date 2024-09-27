@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
+const Doc = require('../models/Doc');
 
 
 // Routes
@@ -245,14 +246,39 @@ router.get('/makingitWork', (req, res) => {
 
 
 
-router.get('/publications', (req, res) => {
 
-    const locals = {
-        title: 'Publications',
-        description: 'The Inclusive Friends Association Website',
-        keywords: ['website', 'about', 'brand']
+router.get('/publications', async (req, res) => {
+    try {
+
+        const locals = {
+            title: 'Publications',
+            description: 'The Inclusive Friends Association Website',
+            keywords: ['website', 'about', 'brand']
+        }
+
+        let perPage = 5;
+        let page = req.query.page || 1;
+
+        const docData = await Doc.aggregate([{ $sort: { createdAt: -1 } }])
+            .skip(perPage * page - perPage)
+            .limit(perPage)
+            .exec();
+
+        const count = await Doc.countDocuments();
+        const nextPage = parseInt(page) + 1;
+        const hasNextPage = nextPage <= Math.ceil(count / perPage);
+
+        // const data = await Post.find();
+        res.render('publications', {
+            locals,
+            docData,
+            current: page,
+            nextPage: hasNextPage ? nextPage : null
+        });
+
+    } catch (error) {
+        console.log(error);
     }
-    res.render('publications', { locals });
 })
 
 router.get('/reports', (req, res) => {

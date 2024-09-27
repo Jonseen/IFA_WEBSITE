@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post'); 
 const User = require('../models/User');
+const Doc = require('../models/Doc');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload')
@@ -82,6 +83,59 @@ router.get('/dashboard', authMiddleware , async (req, res) => {
     }
 })
 
+
+
+/*
+GET
+ADMIN ADD PUBLICATION
+
+*/
+router.get('/add-publication', authMiddleware, (req, res) => {
+    try {
+
+        const locals = {
+            title: 'Admin - Add Publication',
+            description: 'The Inclusive Friends Association Website',
+            keywords: ['website', 'about', 'brand']
+        }
+        res.render('admin/add-publication', {
+            locals,
+            layout: adminLayout
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+/*
+
+post
+ADD NEW PUBLICATION
+*/
+
+router.post('/add-publication', authMiddleware, upload, async (req, res) => {
+    try {
+        try {
+            if (req.files == undefined) {
+                return res.send('no file uploaded');
+            }
+
+            const fileNames = req.files.map(file => file.filename)
+
+            const publicationData = {
+                title: req.body.title,
+                documentDoc: fileNames
+            }
+            await new Doc(publicationData).save()
+            res.redirect('/admin/dashboard')
+        } catch (error) {
+
+        }
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 /*
 GET
@@ -333,7 +387,7 @@ ADMIN LOGOUT
 
 */
 
-router.get('/admin/logout', (req, res)=>{
+router.get('/logout', (req, res)=>{
     res.clearCookie('token');
     res.redirect('/admin');
 })

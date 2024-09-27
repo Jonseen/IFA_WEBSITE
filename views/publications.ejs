@@ -2,11 +2,18 @@
     <h1>Publications</h1>
 
     <div class="publications">
-        <div class="publication">
-            <img src="/img/pub1.png" alt="Disability Act">
-            <h4>Beyond Legislation: A Comprehensive Study on Nigeria’s compliance with the Disability Act</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
+
+        <% docData.forEach(doc => { %>
+         
+            <div class="publication">
+                <img src="/img/pub1.png" alt="Disability Act">
+                <h4><%= doc.title %></h4>
+                <a href="<%= doc.documentDoc %>" target="_blank">Download</a>
+            </div>
+        <% }) %>
+
+
+
         <div class="publication">
             <img src="/img/pub2.png" alt="Gender Based Violence">
             <h4>Training Manual on:

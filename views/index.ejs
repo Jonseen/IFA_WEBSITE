@@ -225,7 +225,15 @@
     <div class="solution-cards">
         <% data.reverse().slice(0, 3).forEach(post=> { %>
             <div class="solution-card">
-                <img src="/img/ADL_5126-780x437.jpg" alt="">
+                <div class="card-img">
+                <% if (post && post.images && post.images.length> 0) { %>
+                    <% post.images.forEach(function(image) { %>
+                        <img src="/uploads/<%= image %>" alt="Image">
+                        <% }) %>
+                            <% } else { %>
+                                <p>No images available.</p>
+                                <% } %>
+                </div>
                 <p class="solution-card-text">
                     <%= post.title %>
                 </p>
@@ -235,7 +243,7 @@
                 </p>
 
                 <p class="solution-card-text-2">
-                    <%- post.body.replace(/<[^>]*>/g, '').split(' ').slice(0, 50).join(' ') + '...' %>
+                    <%- post.body.replace(/<[^>]*>/g, '').split(' ').slice(0, 25).join(' ') + '...' %>
                 </p>
                 <a href="/newsDetail/post/<%= post._id %>" class="learn-button">Read more</a>
             </div>
@@ -309,15 +317,7 @@
         </div>
     </div>
 </div>
-<script>
-    const truncateWords = (text, maxLength) => {
-        const words = text.split(' ');
-        if (words.length > maxLength) {
-            return words.slice(0, maxLength).join(' ') + '...';
-        }
-        return text;
-    }
-</script>
+
 <!-- Google Translate Widget Code -->
 
 <script type="text/javascript">
