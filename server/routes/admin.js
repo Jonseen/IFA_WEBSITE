@@ -6,6 +6,7 @@ const Doc = require('../models/Doc');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload')
+const uploadDoc = require('../middlewares/singleupload')
 const fs = require('fs');
 const path = require('path');
 
@@ -114,28 +115,25 @@ post
 ADD NEW PUBLICATION
 */
 
-router.post('/add-publication', authMiddleware, upload, async (req, res) => {
+router.post('/add-publication', authMiddleware, uploadDoc.fields([{ name: 'thumbnail' }, { name: 'document' }]), async (req, res) => {
     try {
-        try {
-            if (req.files == undefined) {
-                return res.send('no file uploaded');
-            }
-
-            const fileNames = req.files.map(file => file.filename)
-
-            const publicationData = {
-                title: req.body.title,
-                documentDoc: fileNames
-            }
-            await new Doc(publicationData).save()
-            res.redirect('/admin/dashboard')
-        } catch (error) {
-
+        if (!req.files || !req.files.thumbnail || !req.files.document) {
+            return res.status(400).send('Thumbnail or document file not uploaded');
         }
+
+        const publicationData = {
+            title: req.body['doc-title'],
+            thumbnail: req.files.thumbnail[0].filename,
+            documentDoc: req.files.document[0].filename,
+        };
+
+        await new Doc(publicationData).save();
+        res.redirect('/admin/dashboard');
     } catch (error) {
         console.log(error);
+        res.status(500).send('Server error');
     }
-})
+});
 
 /*
 GET
@@ -374,7 +372,17 @@ ADMIN DELETE POST
 */
 router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
     try {
+        const post = await Post.findOne({ _id: req.params.id });
         await Post.deleteOne({ _id: req.params.id } )
+            
+        if (post.images && post.images.length > 0) {
+            post.images.forEach(image => {
+                const filePath = path.join(__dirname, '../../public/uploads', image)
+                if (fs.existsSync(filePath)) {
+                    fs.unlinkSync(filePath);
+                }
+            });
+        }
         res.redirect('/admin/dashboard');
     } catch (error) {
         console.log(error);
