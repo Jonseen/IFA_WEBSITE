@@ -359,7 +359,8 @@ svg {
     background: var(--color-white);
     /* border: 2px solid #F95300; */
     backdrop-filter: blur(20px);
-    height: 100vh;
+    height: 50vh;
+    overflow-y: scroll;
     /* max-height: 80vh; */
     position: fixed;
     display: flex;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- This Website was built by Circo Digital Technologies August 2024 -->
     <!-- Inclusive Friends Association 1.0.0 -->
@@ -12,7 +13,8 @@
         content="IFA, Disability, Inclusive, Inclusion, NGO, CSO Abuja, CSO Nigeria, Inclusive Friends Association">
     <meta name="author" content="IFA">
     <meta name="robots" content="index, follow">
-    <title>IFA | Inclusive Friends Association - <%= locals.title %> </title>
+    <title>IFA | Inclusive Friends Association - <%= locals.title %>
+    </title>
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/mobile.css">
@@ -22,18 +24,103 @@
         rel="stylesheet">
     <script defer src="/js/script.js"></script>
 </head>
+
 <body>
+    <div class="menubarnav">
+        <div class="close-bar">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                    d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+            </svg>
+        </div>
+        <nav class="header-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="has-submenu"><a href="#">About</a>
+                    <ul class="submenu">
+                        <li><a href="/whoweare">Who we are</a></li>
+                        <li><a href="/whatwedo">What we do</a></li>
+                        <li><a href="/#team-section">Meet the team</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu"><a href="#">Programs & Events</a>
+                    <ul class="submenu">
+                        <li><a href="/accessNigeria">Access Nigeria</a></li>
+                        <li><a href="">Advocacy for Disability Act Cluster</a></li>
+                        <li><a href="/amplifyingVoices">Amplifying Voices</a></li>
+                        <li><a href="/learningTogether">Learning Together</a></li>
+                        <li><a href="/makingitWork">Making it Work</a></li>
+                        <li><a href="">Participate Today</a></li>
+                        <li><a href="">Quality Inclusive Education</a></li>
+                        <li><a href="">Votes-Ability Campaign</a></li>
+                        <li><a href="">Wheel Chair Drive</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>  
+    
+        </nav>
+        <!-- <div class="header-links">
+            <div class="products">
+                <a href="">About us</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                    <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+                </svg>
+                
+            </div>
+            <ul class="about-us-drop">
+                <li><a href="/whoweare">Who we are</a></li>
+                <li><a href="/whatwedo">What we do</a></li>
+                <li><a href="/#team-section">Meet the team</a></li>
+            </ul>
+            <div class="solutions">
+                <a href="">Programs & Events</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                    <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+                </svg>
+                
+            </div>
+            <ul class="programs-drop">
+                <li><a href="/accessNigeria">Access Nigeria</a></li>
+                <li><a href="">Advocacy for Disability Act Cluster</a></li>
+                <li><a href="/amplifyingVoices">Amplifying Voices</a></li>
+                <li><a href="/learningTogether">Learning Together</a></li>
+                <li><a href="/makingitWork">Making it Work</a></li>
+                <li><a href="">Participate Today</a></li>
+                <li><a href="">Quality Inclusive Education</a></li>
+                <li><a href="">Votes-Ability Campaign</a></li>
+                <li><a href="">Wheel Chair Drive</a></li>
+            </ul>
+            <a href="/newsUpdates">News & Updates</a>
+            <div class="products">
+                <a href="">Resources</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                    <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+                </svg>
+                <ul class="about-us-drop">
+                    <li><a href="/publications">Publications</a></li>
+                    <li><a href="/reports">Reports</a></li>
+                </ul>
+            </div>
+    
+        </div> -->
+        <!-- <div class="header-right">
+            <a href="">Donate</a>
+            <a href="">Volunteer</a>
+        </div> -->
+    </div>
 
     <div class="">
         <%- include('../partials/header.ejs') %>
-        <div class="wrapper">
+            <div class="wrapper">
 
-            <%- body %>
-        </div>
-        <%- include('../partials/footer.ejs') %>
-        
+                <%- body %>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+
     </div>
 
    
 </body>
+
 </html>
