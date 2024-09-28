@@ -1629,3 +1629,24 @@ footer::before {
     border-radius: 20px;
     border: 1px solid var(--color-light-gray);
 }
+
+.admin-dashboard {
+    margin: 0 auto;
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.admin-dashboard .admin-title {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+}
+.admin-dashboard .admin-title .add-links a {
+    display: block;
+    color: var(--color-white);
+}
+.admin-dashboard .admin-title .add-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}

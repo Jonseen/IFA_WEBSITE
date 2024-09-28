@@ -3,53 +3,19 @@
 
     <div class="publications">
 
-        <% docData.forEach(doc => { %>
+        <% docData.reverse().forEach(doc => { %>
          
             <div class="publication">
-                <img src="/img/pub1.png" alt="Disability Act">
+                <% if (doc && doc.thumbnail && doc.thumbnail.length> 0) { %>
+                        <img src="/documents/<%= doc.thumbnail %>" alt="Thumbnail">
+                            <% } else { %>
+                                <p>No thumbnail available.</p>
+                                <% } %>
                 <h4><%= doc.title %></h4>
-                <a href="<%= doc.documentDoc %>" target="_blank">Download</a>
+                <a href="/documents/<%= doc.documentDoc %>" target="_blank">Download</a>
             </div>
         <% }) %>
 
-
-
-        <div class="publication">
-            <img src="/img/pub2.png" alt="Gender Based Violence">
-            <h4>Training Manual on:
-                Disability & Gender Based Violence</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
-        <div class="publication">
-            <img src="/img/pub3.jpg" alt="Gender Based Violence">
-            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
-        <div class="publication">
-            <img src="/img/pub4.jpg" alt="Gender Based Violence">
-            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
-        <div class="publication">
-            <img src="/img/pub5.jpg" alt="Gender Based Violence">
-            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
-        <div class="publication">
-            <img src="/img/pub6.jpg" alt="Gender Based Violence">
-            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
-        <div class="publication">
-            <img src="/img/pub7.jpg" alt="Gender Based Violence">
-            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
-        <div class="publication">
-            <img src="/img/pub8.jpg" alt="Gender Based Violence">
-            <h4>Universal Accessibility Checklist for the Nigerian Build Environment</h4>
-            <a href="" target="_blank">Download</a>
-        </div>
     </div>
 </div>
 

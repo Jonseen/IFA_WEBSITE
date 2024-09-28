@@ -1,27 +1,32 @@
 <div id="google_translate_element" class="translate-div"></div>
 
-<div class="admin-title container">
-    <h1>Posts</h1>
-    <a href="add-post" class="button"> + Add New</a>
+<div class="admin-dashboard container">
+    <div class="admin-title"></div>
+        <h1>Posts</h1>
+        <div class="add-links">
+            <a href="add-post" class="button"> + Add New Post</a>
+            <a href="add-publication" class="button"> + Add New Publication</a>
+        </div>
+    </div>
+    
+    <ul class="admin-post container">
+        <% data.forEach(post=> { %>
+    
+            <li>
+                <a href="/newsDetail/post/<%= post._id %>">
+    
+                    <%= post.title %> &nearr;
+    
+                </a>
+                <div class="admin-post-controls">
+                    <a href="/admin/edit-post/<%= post._id %>" class="btn">Edit</a>
+    
+                    <form action="/admin/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" class="btn">
+                    </form>
+                </div>
+            </li>
+    
+            <% }) %>
+    </ul>
 </div>
-
-<ul class="admin-post">
-    <% data.forEach(post => { %>
-
-        <li>
-            <a href="/newsDetail/post/<%= post._id %>">
-
-                <%= post.title %> &nearr;
-
-            </a>
-            <div class="admin-post-controls">
-                <a href="/admin/edit-post/<%= post._id %>" class="btn">Edit</a>
-
-                <form action="/admin/delete-post/<%= post._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete" class="btn">
-                </form>
-            </div>
-        </li>
-     
-    <% }) %>
-</ul>
