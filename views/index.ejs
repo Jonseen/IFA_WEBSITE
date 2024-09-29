@@ -2,16 +2,14 @@
 <div id="video-popup" class="video-popup">
     <div class="video-popup-content">
         <span id="close-video-btn" class="close-video-btn">&times;</span>
-        <iframe id="video-frame" 
-            src="https://www.youtube.com/embed/D-YGxxe_Isc?si=0tFdeIJ64cL36rHn" title="YouTube video player"
-            frameborder="0"
+        <iframe id="video-frame" src="https://www.youtube.com/embed/D-YGxxe_Isc?si=0tFdeIJ64cL36rHn"
+            title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 </div>
 
 
-<div id="google_translate_element" class="translate-div"></div>
 <!-- Hero Section Begins Here  -->
 <div class="hero container">
     <div class="hero-left">
@@ -226,13 +224,13 @@
         <% data.reverse().slice(0, 3).forEach(post=> { %>
             <div class="solution-card">
                 <div class="card-img">
-                <% if (post && post.images && post.images.length> 0) { %>
-                    <% post.images.forEach(function(image) { %>
-                        <img src="/uploads/<%= image %>" alt="Image">
-                        <% }) %>
-                            <% } else { %>
-                                <p>No images available.</p>
-                                <% } %>
+                    <% if (post && post.images && post.images.length> 0) { %>
+                        <% post.images.forEach(function(image) { %>
+                            <img src="/uploads/<%= image %>" alt="Image">
+                            <% }) %>
+                                <% } else { %>
+                                    <p>No images available.</p>
+                                    <% } %>
                 </div>
                 <p class="solution-card-text">
                     <%= post.title %>
@@ -318,20 +316,3 @@
     </div>
 </div>
 
-<!-- Google Translate Widget Code -->
-
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,fr,yo,ig,ha'
-        }, 'google_translate_element');
-    }
-
-
-    function toggleTheme() {
-        document.documentElement.classList.toggle('dark-theme');
-    }
-</script>
-<script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

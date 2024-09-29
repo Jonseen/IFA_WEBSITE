@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <div id="google_translate_element" class="translate-div"></div>
     <div class="menubarnav">
         <div class="close-bar">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -119,7 +120,73 @@
             <%- include('../partials/footer.ejs') %>
 
     </div>
+<script>
+    // Tab Group
+    const tabs = document.querySelectorAll('.tabs li');
+    const tabContent = document.querySelectorAll('.tab-content .tab-pane');
 
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContent.forEach(pane => pane.classList.remove('active'));
+
+            tab.classList.add('active');
+            tabContent[index].classList.add('active');
+        });
+    });
+
+    // Mobile Menu  
+        // Mobile Menu Icon
+        let menuIcon = document.querySelector(".header-menu");//for the bars
+
+        let menu = menuIcon.addEventListener("click", () => {
+            let menu_cnt = document.querySelector(".menubarnav");
+            menu_cnt.classList.add("active");
+
+            // accordion
+            let accordioncloser = document.querySelector(".close-bar");
+            let closeaccordion = accordioncloser.addEventListener("click", () => {
+                menu_cnt.classList.remove("active");
+            });
+        });
+</script>
+
+<!-- Google Translate Widget Code -->
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,yo,ig,ha,pt,ar,zh-CN,zh-TW'
+
+        }, 'google_translate_element');
+    }
+
+
+    function toggleTheme() {
+        document.documentElement.classList.toggle('dark-theme');
+    }
+
+    // Image slider 
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        document.querySelector('.slider').style.transform = `translateX(${-currentSlide * 100}%)`;
+    }
+
+    function moveSlide(n) {
+        showSlide(currentSlide + n);
+    }
+
+    // Auto-slide (Optional)
+    setInterval(() => moveSlide(1), 3000);
+</script>
+
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    
 </body>
 

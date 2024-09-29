@@ -35,17 +35,6 @@ window.addEventListener('click', function (event) {
 });
 
 
-// Mobile Menu  
-// Mobile Menu Icon
-let menuIcon = document.querySelector(".header-menu");//for the bars
 
-let menu = menuIcon.addEventListener("click", () => {
-    let menu_cnt = document.querySelector(".menubarnav");
-    menu_cnt.classList.add("active");
 
-    // accordion
-    let accordioncloser = document.querySelector(".close-bar");
-    let closeaccordion = accordioncloser.addEventListener("click", () => {
-        menu_cnt.classList.remove("active");
-    });
-});
+

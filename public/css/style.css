@@ -61,6 +61,47 @@ body {
     overflow-x: hidden;
 }
 
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+    font-size: 12px;
+    font-weight: bold;
+    color: #444;
+    display: none;
+}
+.goog-te-gadget img {
+    vertical-align: middle;
+    display: none;
+}
+
+.goog-te-combo {
+    background-color: var(--color-accent-variant-2);
+    padding: 5px 10px;
+    color: var(--color-accent);
+    border-radius: 10px;
+    border: 2px solid var(--color-accent);
+    backdrop-filter: blur(10px);
+}
+
+/* .google-translate-element .google-translate-button {
+    display: none !important;
+    visibility: hidden;
+} */
+
+.goog-logo-link {
+    display:none !important;
+}
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+#google_translate_element {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
 .wrapper {
     width: 100%;
     /* Take up 90% of the viewport width */
@@ -1249,50 +1290,49 @@ footer::before {
 }
 
 .tab-container {
-    width: 70%;
-    margin: 0 auto;
-    background-color: var(--color-accent);
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.tab-buttons {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    background-color: var(--color-accent-variant-2);
+    flex-direction: column;
+    border: 2px solid var(--color-accent);
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 70%;
 }
 
-.tab-button {
-    padding: 10px 20px;
-    /* display: inline-block; */
-    /* width: 100px; */
-    color: var(--color-white);
+.tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tab {
+    padding: 10px;
     cursor: pointer;
-    background-color: var(--color-accent-transparent);
-    border: none;
-    outline: none;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    user-select: none;
+    color: var(--color-accent);
 }
 
-.tab-button.active,
-.tab-button:hover {
-    background-color: var(--color-accent);
+.tab.active {
+    background-color: var(--color-accent-variant-2);
+    border-bottom: 2px solid var(--color-accent-variant);
+    color: var(--color-accent);
+    font-weight: 700;
 }
 
 .tab-content {
-    display: none;
-    color: var(--color-white);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.tab-content.active {
+.tab-pane {
+    display: none;
+    padding: 20px;
+    color: var(--color-accent );
+}
+
+.tab-pane.active {
     display: block;
 }
-
-
-
 /* WHat WE DO SECTION  */
 .what-we-do-page h1 {
     /* display: block; */
@@ -1651,3 +1691,4 @@ footer::before {
     justify-content: space-between;
     gap: 20px;
 }
+
