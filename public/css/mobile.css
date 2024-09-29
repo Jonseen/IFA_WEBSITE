@@ -87,6 +87,7 @@
 
     .what-we-do {
         flex-direction: column-reverse;
+        /* gap: 0; */
         /* justify-content: center; */
     }
 
@@ -398,7 +399,7 @@
     .who-we-are-page {
         width: 90%;
         margin: 0 auto;
-        padding-block: 30px;
+        /* padding-block: 30px; */
     }
 
     .who-we-are-page h1 {
@@ -421,5 +422,43 @@
         background-color: var(--color-accent);
         padding: 20px;
         border-radius: 20px;
+    }
+ .what-we-do {
+    padding-block: 0;
+ }
+    .what-we-do-page h1 {
+        font-size: 42px;
+        color: var(--color-accent);
+        margin-block: 10px;
+        padding-inline: 20px;
+    }
+
+    .what-we-do-page p {
+        font-size: 24px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 500;
+        line-height: 32px;
+        padding-inline: 20px;
+        color: var(--color-dark);
+        width: 100%;
+        padding-block: 30px;
+    }
+
+    .slider-container {
+        position: relative;
+        /* width: 100%; */
+        max-width: 90%;
+        height: 200px;
+        
+        margin: auto;
+        overflow: hidden;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+    }
+    
+    .slider-container img {
+        
+        object-fit: contain;
+        object-position: top center;
     }
 }
