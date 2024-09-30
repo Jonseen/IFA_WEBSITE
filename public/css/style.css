@@ -17,6 +17,7 @@
     --color-accent: #096866;
     --color-accent-variant: #064746;
     --color-accent-transparent: #a4f5f3a1;
+    --color-accent-light: #8efaf8;
     --color-border: #096866;
     --body-padding-inline: 70px;
     --button-padding: 10px 15px;
@@ -37,6 +38,7 @@
     --color-accent: #a4f5f3a1;
     --color-accent-variant: #FFFFFF;
     --color-accent-transparent: #213343;
+    --color-accent-light: #213343;
     --color-border: #a4f5f3a1;
     --body-padding-inline: 70px;
     --button-padding: 10px 15px;
@@ -397,7 +399,7 @@ svg {
 
 .menubarnav.active {
     /* background: #fff7efa7; */
-    background: var(--color-accent-transparent);
+    background: var(--color-light-gray);
     /* border: 2px solid #F95300; */
     backdrop-filter: blur(20px);
     height: 100vh;
