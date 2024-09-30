@@ -1,15 +1,21 @@
 <!-- Who we are Page Section  -->
-<div class="news-page">
-    <h1><%= data.title %> </h1>
-    <div>
-        <% if (data && data.images && data.images.length > 0) { %>
+<div class="news-details-page">
+    <h1>
+        <%= data.title %>
+    </h1>
+    <div class="image-gallery">
+        <% if (data && data.images && data.images.length> 0) { %>
             <% data.images.forEach(function(image) { %>
-              <img src="/uploads/<%= image %>" alt="Image" style="width:50px; height:50px; margin: 10px;">
-            <% }) %>
-          <% } else { %>
-            <p>No images available.</p>
-          <% } %>      
+                <img src="/uploads/<%= image %>" alt="Image" class="gallery-image">
+                <% }) %>
+                    <% } else { %>
+                        <p>No images available.</p>
+                        <% } %>
     </div>
-    <article><%- data.body %></article>
+    <article class="news-content">
+        <%- data.body %>
+    </article>
+    <a href="/newsUpdates" class="news-details-page-back">&leftarrow; Go back</a>
+
 </div>
 
