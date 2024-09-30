@@ -461,4 +461,34 @@
         object-fit: contain;
         object-position: top center;
     }
+
+           .publications-div {
+               width: 100vw;
+               margin: 0 auto;
+           }
+        .publications-div .publications .publication {
+            width: 100%;
+            background-color: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--color-light-gray);
+            transition: all .3s ease;
+        }
+                .publications-div .publications .publication h4 {
+                    color: var(--color-accent);
+                    height: 100px;
+                    font-weight: 600;
+                    padding-inline: 10px;
+                    font-size: 20px;
+                    padding-block: 10px;
+                }
+
+.publications-div .publications .publication a {
+    color: var(--color-white);
+    background-color: var(--color-accent);
+    text-align: center;
+    padding: 20px 10px;
+    font-weight: 500;
+    transition: all .5s ease;
+}
 }
