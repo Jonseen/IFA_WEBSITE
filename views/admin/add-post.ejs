@@ -1,18 +1,20 @@
-<a href="/admin/dashboard">&larr; Back</a>
-<div class="admin-title">
-    <h2>Add New Post</h2>
-</div>
-
-<form action="/admin/add-post" method="POST" enctype="multipart/form-data">
-    <label for="title"><b>Title</b></label><br>
-    <input type="text" name="title" id="" placeholder="Post Title"><br><br>
+<div class="add-post-wrapper container">
+    <div class="admin-title">
+        <h2>Add New Post</h2>
+        <a href="/admin/dashboard">&larr; Back</a>
+    </div>
     
-    <label for="title"><b>Pictures</b></label><br>
-    <input type="file" name="files" id="" multiple><br><br>
+    <form action="/admin/add-post" method="POST" enctype="multipart/form-data">
+        <label for="title"><b>Title</b></label><br>
+        <input type="text" name="title" id="" placeholder="Post Title"><br><br>
+    
+        <label for="title"><b>Pictures</b></label><br>
+        <input type="file" name="files" id="" multiple><br><br>
+    
+        <label for="content"><b>Content</b></label><br>
+        <textarea name="body" id="content" cols="50" rows="10"></textarea><br><br>
+    
+        <input type="submit" value="Add" class="btn">
+    </form>
 
-    <label for="content"><b>Content</b></label><br>
-    <textarea name="body" id="content" cols="50" rows="10"></textarea><br><br>
-
-    <input type="submit" value="Add" class="btn">
-</form>
-
+</div>

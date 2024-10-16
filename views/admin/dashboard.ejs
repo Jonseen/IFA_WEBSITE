@@ -1,16 +1,18 @@
 <div id="google_translate_element" class="translate-div"></div>
 
 <div class="admin-dashboard container">
-    <div class="admin-title"></div>
+    <div class="admin-title">
         <h1>Posts</h1>
         <div class="add-links">
             <a href="add-post" class="button"> + Add New Post</a>
             <a href="add-publication" class="button"> + Add New Publication</a>
         </div>
+
+    </div>
     </div>
     
     <ul class="admin-post container">
-        <% data.forEach(post=> { %>
+        <% data.reverse().forEach(post=> { %>
     
             <li>
                 <a href="/newsDetail/post/<%= post._id %>">

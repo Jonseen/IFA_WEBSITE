@@ -9,18 +9,19 @@ const MongoStore = require('connect-mongo');
 
 
 
-const connectDB = require('./server/config/db'); 
+const connectDB = require('./server/config/db');
 
 
 
 const app = express();
-const PORT = 3000 || process.env.PORT;
+const PORT = 5000 || process.env.PORT;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 
 // Connect to Database 
+
 connectDB(MONGODB_URI);
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride('_method'));
@@ -29,7 +30,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: new Date(Date.now() + (3600000)) } 
+    cookie: { maxAge: new Date(Date.now() + (3600000)) }
 }))
 
 
@@ -46,6 +47,6 @@ app.use('/', require('./server/routes/main'));
 app.use('/admin', require('./server/routes/admin'));
 
 
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
